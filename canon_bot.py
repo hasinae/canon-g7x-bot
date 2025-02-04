@@ -13,7 +13,7 @@ options.headless = False
 driver = webdriver.Chrome(options=options)
 
 # The URL for the Canon website you want to visit
-canon_url = "https://www.usa.canon.com/shop/p/powershot-g7-x-mark-ii?color=Black&type=New"
+canon_url = "https://www.usa.canon.com/shop/p/powershot-g7-x-mark-iii?color=Black&type=New"
 
 # Load the Canon website
 driver.get(canon_url)
@@ -22,35 +22,20 @@ print(driver.page_source)
 driver.quit()
 
 # Configuration
-TARGET_URL = "https://www.usa.canon.com/shop/p/powershot-g7-x-mark-ii?color=Black&type=New"
+TARGET_URL = "https://www.usa.canon.com/shop/p/powershot-g7-x-mark-iii?color=Black&type=New"
 CHECK_INTERVAL = 60  # Check every 60 seconds
-# CHANGE BELOW !!! CENSORED FOR PRIVACY!!!!!!
-EMAIL = "example@gmail.com"
-PASSWORD = "example"
+EMAIL = "hasinahearts@gmail.com"
+PASSWORD = "Hasina_04"
 
 # Function to check stock availability using BeautifulSoup
-# def check_stock():
-#     response = requests.get(TARGET_URL)
-#     soup = BeautifulSoup(response.text, 'html.parser')
-#     stock_status = soup.find("div", {"class": "stock-status"})
+def check_stock():
+    response = requests.get(TARGET_URL)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    stock_status = soup.find("div", {"class": "stock-status"})
 
-#     if stock_status and "in stock" in stock_status.text.lower():
-#         return True
-#     return False
-
-def check_stock(driver):
-    driver.get(TARGET_URL)
-    try:
-        stock_status = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.CLASS_NAME, "stock-status"))
-        )
-        if "in stock" in stock_status.text.lower():
-            return True
-        return False
-    except Exception as e:
-        print(f"Error checking stock: {e}")
-        return False
-
+    if stock_status and "in stock" in stock_status.text.lower():
+        return True
+    return False
 
 # Function to automate purchase
 def purchase_item(driver):
