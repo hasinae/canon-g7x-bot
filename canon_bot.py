@@ -79,14 +79,20 @@ def purchase_item():
 
 # Main loop
 def main():
+     # counter for stock checks
+    check_count = 0 
+    
     while True:
+        # Increment the counter for each stock check
+        check_count += 1 
+        
         if check_stock():
-            print("Item is in stock! Attempting to purchase...")
+            print(f"Checked {check_count} times now: Item is in stock! Attempting to purchase...")
             success = purchase_item()
             if success:
                 break  # Stop after a successful purchase
         else:
-            print(f"Item is out of stock. Checking again in {CHECK_INTERVAL} seconds...")
+            print(f"Checked {check_count} times now: Item is out of stock. Checking again in {CHECK_INTERVAL} seconds...")
             time.sleep(CHECK_INTERVAL)
 
 if __name__ == "__main__":
