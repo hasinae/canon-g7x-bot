@@ -27,7 +27,7 @@ CHECK_INTERVAL = 60  # Check every 60 seconds
 EMAIL = "hasinahearts@gmail.com"
 PASSWORD = "Hasina_04"
 
-# Function to check stock availability using BeautifulSoup
+# Function to check stock availability using BeautifulSoup and requests
 def check_stock():
     response = requests.get(TARGET_URL)
     soup = BeautifulSoup(response.text, 'html.parser')
