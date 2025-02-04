@@ -24,8 +24,8 @@ driver.quit()
 # Configuration
 TARGET_URL = "https://www.usa.canon.com/shop/p/powershot-g7-x-mark-iii?color=Black&type=New"
 CHECK_INTERVAL = 60  # Check every 60 seconds
-EMAIL = "hasinahearts@gmail.com"
-PASSWORD = "Hasina_04"
+EMAIL = "example@gmail.com"
+PASSWORD = "example"
 
 # Function to check stock availability using BeautifulSoup and requests
 def check_stock():
