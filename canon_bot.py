@@ -28,12 +28,12 @@ def check_stock():
 # Function to automate purchase
 def purchase_item():
     # Set up Selenium WebDriver (make sure ChromeDriver is installed)
-    driver = webdriver.Chrome()  # Or specify the path to ChromeDriver
+    driver = webdriver.Chrome() 
     driver.get(TARGET_URL)
     
     try:
         # Select color "Black"
-        color_dropdown = driver.find_element(By.ID, "color-select")  # Adjust the ID if necessary
+        color_dropdown = driver.find_element(By.ID, "color-select") 
         color_dropdown.click()
         black_option = driver.find_element(By.XPATH, "//option[contains(text(), 'Black')]")
         black_option.click()
@@ -47,7 +47,7 @@ def purchase_item():
         checkout_button.click()
         
         # Decline CarePAK coverage (assuming it's a checkbox or a button to decline)
-        carepak_decline_button = driver.find_element(By.XPATH, "//input[@name='carepak_decline']")  # Adjust this XPath if needed
+        carepak_decline_button = driver.find_element(By.XPATH, "//input[@name='carepak_decline']") 
         if carepak_decline_button:
             carepak_decline_button.click()
 
@@ -63,7 +63,7 @@ def purchase_item():
         submit_button.click()
         
         # Check for confirmation page or success message
-        success_message = driver.find_element(By.XPATH, "//h1[contains(text(), 'Thank you for your order')]")  # Adjust this XPath based on actual confirmation message
+        success_message = driver.find_element(By.XPATH, "//h1[contains(text(), 'Thank you for your order')]") 
         if success_message:
             print("Purchase completed successfully.")
             return True
